@@ -1,4 +1,7 @@
+#coding:utf-8
+
 from django.shortcuts import render
+
 from django.http import HttpResponse
 # Create your views here.
 
@@ -39,4 +42,11 @@ def post_test2(request):
     context = {'uname':uname, 'upwd':upwd, 'ugender':ugender,'uhobby':uhobby}
     return render(request,'post_test2.html',context)
 
-
+#cookie 练习
+def cookie_test(request):
+    response = HttpResponse()
+    cookie = request.COOKIES
+    if cookie.has_key('t1'):
+         response.write(cookie['t1'])
+    #response.set_cookie('t1','abc')
+    return response

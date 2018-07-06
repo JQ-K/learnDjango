@@ -13,4 +13,6 @@ urlpatterns =[
     url(r'^test3/$',views.get_test3),
     url(r'^postTest1/$',views.post_test1),
     url(r'^postTest2$',views.post_test2),
+    url(r'^cookieTest/$',views.cookie_test),
+    
 ]
