@@ -27,4 +27,16 @@ def get_test3(request):
     context = {'a':a1}
     return render(request, 'test3.html',context)
 
+def post_test1(request):
+    return render(request,'post_test1.html')
+
+def post_test2(request):
+    uname = request.POST['uname']
+    upwd = request.POST['upwd']
+    ugender = request.POST.get('ugender')
+    uhobby = request.POST.getlist('uhobby')
+    print(uhobby)
+    context = {'uname':uname, 'upwd':upwd, 'ugender':ugender,'uhobby':uhobby}
+    return render(request,'post_test2.html',context)
+
 
