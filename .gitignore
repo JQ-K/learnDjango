@@ -100,5 +100,11 @@ venv.bak/
 # mkdocs documentation
 /site
 
+settings.py
+
 # mypy
+<<<<<<< HEAD
 .mypy_cache/
+=======
+.mypy_cache/
+>>>>>>> 1d6f4ed7ebab6540f78dc989caa72f55b4bbbf12
