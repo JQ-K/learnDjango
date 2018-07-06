@@ -14,5 +14,7 @@ urlpatterns =[
     url(r'^postTest1/$',views.post_test1),
     url(r'^postTest2$',views.post_test2),
     url(r'^cookieTest/$',views.cookie_test),
+    url(r'^redTest1/$', views.redirect_test1),
+    url(r'^redTest2/$', views.redirect_test2),
     
 ]

@@ -2,7 +2,7 @@
 
 from django.shortcuts import render
 
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 # Create your views here.
 
 def index(request):
@@ -50,3 +50,10 @@ def cookie_test(request):
          response.write(cookie['t1'])
     #response.set_cookie('t1','abc')
     return response
+
+#重定向
+def redirect_test1(request):
+    return HttpResponseRedirect('/booktest/redTest2/')
+
+def redirect_test2(request):
+    return HttpResponse('重定向的结果')
