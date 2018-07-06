@@ -1,0 +1,30 @@
+from django.shortcuts import render
+from django.http import HttpResponse
+# Create your views here.
+
+def index(request):
+     
+    #icontext = {'list':list}
+    return HttpResponse(request.path)
+
+def detail(request, p1,p2,p3):
+    return HttpResponse('year:{},month:{},day:{}'.format(p1,p2,p3))
+
+def get_test1(request):
+    return render(request,'test1.html')
+
+
+def get_test2(request):
+    a1= request.GET['a']
+    b1 = request.GET['b']
+    c1 = request.GET['c']
+    context = {'a':a1,'b':b1,'c':c1}
+    return render(request, 'test2.html', context)
+
+
+def get_test3(request):
+    a1 = request.GET.getlist('a')
+    context = {'a':a1}
+    return render(request, 'test3.html',context)
+
+
