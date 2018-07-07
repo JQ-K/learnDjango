@@ -1,6 +1,5 @@
 from django.conf.urls import include, url
 from django.contrib import admin
-from booktest import views
 urlpatterns = [
     # Examples:
     # url(r'^$', 'test4.views.home', name='home'),

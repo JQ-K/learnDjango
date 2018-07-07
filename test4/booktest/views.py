@@ -1,5 +1,6 @@
 #coding:utf-8
 from django.shortcuts import render
+from django.http import HttpResponse
 from models import *
 # Create your views here.
 
@@ -28,3 +29,12 @@ def user2(request):
 def html_test(request):
     context ={'t1': '<h1>123</h1>'}
     return render(request, 'html_test.html',context)
+
+# csrf
+def csrf1(request):
+    return render(request, 'csrf1.html')
+
+def csrf2(request):
+    uname = request.POST['uname']
+    return HttpResponse(uname)
+
