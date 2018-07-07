@@ -23,3 +23,8 @@ def user1(request):
 
 def user2(request):
     return render(request, 'user2.html')
+
+# html 转义练习
+def html_test(request):
+    context ={'t1': '<h1>123</h1>'}
+    return render(request, 'html_test.html',context)
