@@ -1,3 +1,4 @@
+#coding:utf-8
 from django.shortcuts import render
 from models import *
 # Create your views here.
@@ -12,3 +13,13 @@ def index(request):
 def show(request, id, id2):
     context = {'id':id}
     return render(request, 'show.html',context)
+
+# 用于练习模板的继承
+def index2(request):
+    return render(request, 'index2.html')
+
+def user1(request):
+    return render(request, 'user1.html')
+
+def user2(request):
+    return render(request, 'user2.html')
