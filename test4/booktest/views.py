@@ -9,6 +9,6 @@ def index(request):
     context = {'list': list}
     return render(request,'index.html', context)
 
-def show(request, id):
+def show(request, id, id2):
     context = {'id':id}
     return render(request, 'show.html',context)

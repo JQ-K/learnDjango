@@ -5,7 +5,10 @@
     <title></title>
 </head>
 <body>
-    <a href="/booktest/123">显示</a>
+    {% comment %}
+    url反向解析  booktest 是上级url名字，show 是app级别的url名字， 后跟传递的参数
+    {% endcomment %}
+    <a href="{% url 'booktest:show' '23456' '333' %}">显示</a>
     <hr>
 
     {{ hero.showname }}
