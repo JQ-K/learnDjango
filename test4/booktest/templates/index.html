@@ -7,9 +7,15 @@
 <body>
     {{ hero.showname }}
     <hr>
+    奇数行显示为红色，偶数行显示蓝色
+    <hr>
     <ul>
     {% for hero in list %}
-      <li> {{ hero.showname }}</li> 
+        {% if not forloop.counter|divisibleby:2 %}
+       <li style="color:red" > {{ forloop.counter }}:{{ hero.showname }}</li> 
+       {% else %}
+       <li style="color:blue"> {{ forloop.counter }}:{{ hero.showname }}</li> 
+      {% endif %}
       {% empty %}
          <li>没有内容</li>
     {% endfor %}
