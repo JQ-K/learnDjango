@@ -62,7 +62,7 @@ def redirect_test2(request):
 # 通过用户登录练习session
 def session1(request):
     #uname = request.session['myname']
-    uname = request.session.get('myname', '未登录')
+    uname = request.session.get('myname', '未登录')#解决session无值情况下报错问题，使用get获取字典内容
     context ={'uname': uname}
     return render(request,'session1.html', context)
 def session2(request):
@@ -71,6 +71,7 @@ def session2(request):
 def session2_handle(request):
     uname = request.POST['uname']
     request.session['myname'] = uname
+    request.session.set_expiry(0)
     return HttpResponseRedirect('/booktest/session1/')
 
 def session3(request):
