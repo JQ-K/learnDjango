@@ -6,6 +6,14 @@
 </head>
 <body>
     {{ hero.showname }}
+    <hr>
+    <ul>
+    {% for hero in list %}
+      <li> {{ hero.showname }}</li> 
+      {% empty %}
+         <li>没有内容</li>
+    {% endfor %}
+    </ul>
 </body>
 </html>
 
