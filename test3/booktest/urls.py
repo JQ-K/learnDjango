@@ -16,5 +16,8 @@ urlpatterns =[
     url(r'^cookieTest/$',views.cookie_test),
     url(r'^redTest1/$', views.redirect_test1),
     url(r'^redTest2/$', views.redirect_test2),
-    
+    url(r'^session1/$', views.session1),
+    url(r'^session2/$', views.session2),
+    url(r'^session2_handle$', views.session2_handle),
+    url(r'^session3/$', views.session3),
 ]

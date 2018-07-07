@@ -48,7 +48,7 @@ def cookie_test(request):
     cookie = request.COOKIES
     if cookie.has_key('t1'):
          response.write(cookie['t1'])
-    #response.set_cookie('t1','abc')
+    #response.set_cookie('t1','
     return response
 
 #重定向
@@ -57,3 +57,23 @@ def redirect_test1(request):
 
 def redirect_test2(request):
     return HttpResponse('重定向的结果')
+
+# http 是无状态协议，无法记录与网站的交互想要保存需要使用cookie或者session
+# 通过用户登录练习session
+def session1(request):
+    #uname = request.session['myname']
+    uname = request.session.get('myname', '未登录')
+    context ={'uname': uname}
+    return render(request,'session1.html', context)
+def session2(request):
+    return render(request, 'session2.html')
+
+def session2_handle(request):
+    uname = request.POST['uname']
+    request.session['myname'] = uname
+    return HttpResponseRedirect('/booktest/session1/')
+
+def session3(request):
+    #删除session
+    del request.session['myname']
+    return HttpResponseRedirect('/booktest/session1/')
