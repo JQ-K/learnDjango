@@ -38,3 +38,46 @@ def csrf2(request):
     uname = request.POST['uname']
     return HttpResponse(uname)
 
+# 验证码
+def verify_code(request):
+    from PIL import Image, ImageDraw, ImageFont
+    import random
+    # 创建背景色
+    bgcolor = (random.randrange(50,100),random.randrange(50,100),0)
+    #规定宽高
+    width=100
+    height =25
+    image = Image.new('RGB',(width,height),bgcolor)
+    # 构建字体对象
+    font = ImageFont.truetype('FreeMono.ttf', 24)
+    #创建画笔
+    draw = ImageDraw.Draw(image)
+    #创建文本内容
+    text = '0123ABCD'
+    # 逐个绘制字符mZ
+    textTemp =''
+    for i in range(4):
+        textTemp1 = text[random.randrange(0,len(text))]
+        textTemp += textTemp1
+        draw.text((i*25,0),
+                textTemp1, 
+                 (255,255,255),
+                 font)
+    request.session['code']=textTemp
+    # 保存到内存流中
+    import cStringIO
+    buf = cStringIO.StringIO()
+    image.save(buf,'png')
+    # 将内容流中的内容输出到客户端
+    return HttpResponse(buf.getvalue(), 'image/png')
+
+def verify_test1(request):
+    return render(request, 'verifytest.html')
+
+def verify_test2(request):
+    input_code = request.POST["code1"]
+    site_code =  request.session['code']
+    if input_code.lower() == site_code.lower():
+        return HttpResponse("ok")
+    else:
+        return HttpResponse("验证码错误")

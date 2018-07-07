@@ -10,4 +10,7 @@ urlpatterns =[
       url(r'^html_test$', views.html_test, name='html_test'),
       url(r'^csrf1$', views.csrf1),
       url(r'^csrf2$', views.csrf2),
+      url(r'^verifyCode$', views.verify_code),
+      url(r'^verifyTest1$', views.verify_test1),
+      url(r'^verifyTest2$', views.verify_test2),
 ]
