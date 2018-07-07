@@ -11,3 +11,7 @@
 . 获取表单单个数据方法，request.POST[' 关键字'] or request.POST.get('关键字')
 
 . 获取表单多个数据 列表, request.POST.getlist('关键字')
+
+> session
+
+    request.session[key]  or  request.session.get(key):
