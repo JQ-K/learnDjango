@@ -8,4 +8,7 @@ urlpatterns=[
 
     url(r'^$', views.index),
     url(r'^myexp$', views.MyExp),
+    url(r'^uploadPic$', views.upload_pic),
+
+    url(r'^uploadhandle$', views.upload_handle),
 ]
