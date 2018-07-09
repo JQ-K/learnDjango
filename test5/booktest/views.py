@@ -10,7 +10,7 @@ from django.conf import settings
 def index(request):
     return render(request,'index.html')
 
-
+# 测试自定义中间件
 def MyExp(request):
     a1 = int('abc')
     return HttpResponse('Hello')
