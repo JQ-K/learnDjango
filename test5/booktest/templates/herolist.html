@@ -2,13 +2,20 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title></title>
-</head>
+    <title></title></head>
 <body>
     <ul>
         {%for hero in page %}
            <li>{{ hero.hname }}</li>
         {% endfor %}
     </ul>
+    <hr>
+    {% for index in page.paginator.page_range %}
+        {% if index == page.number %}
+            {{ index }}
+        {% else %}
+            <a href="/herolist/{{ index }}">{{ index }}</a>
+        {% endif %}
+    {% endfor %}
 </body>
-</html
+</html>

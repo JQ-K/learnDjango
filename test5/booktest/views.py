@@ -31,12 +31,13 @@ def upload_handle(request):
     return HttpResponse('<img src="/static/media/{}">'.format(pic1.name))
 
 #进行分页练习
-def hero_list(request):
+def hero_list(request, pindex):#向视图传递参数需要用到url正则表达式
+    if pindex  is None:
+        pindex = '1' 
     list = HeroInfo.objects.all()
-    for i in list:
-        print(i.hname)
     paginator = Paginator(list,5)
-    page = paginator.page(1)
+    page = paginator.page(int(pindex))
+    print (page.number)
     context = {'page':page}
     return render(request,'herolist.html',context)
     

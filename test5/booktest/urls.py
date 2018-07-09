@@ -11,5 +11,5 @@ urlpatterns=[
     url(r'^uploadPic$', views.upload_pic),
 
     url(r'^uploadhandle$', views.upload_handle),
-    url(r'^herolist$', views.hero_list),
+    url(r'^herolist/(\d+)*$', views.hero_list),
 ]
