@@ -4,6 +4,8 @@ from django.shortcuts import render
 from django.http import HttpResponse
 import os
 from django.conf import settings
+from models import * #导入数据库
+from django.core.paginator import *
 # Create your views here.
 
 
@@ -27,3 +29,15 @@ def upload_handle(request):
             f.write(i)
     
     return HttpResponse('<img src="/static/media/{}">'.format(pic1.name))
+
+#进行分页练习
+def hero_list(request):
+    list = HeroInfo.objects.all()
+    for i in list:
+        print(i.hname)
+    paginator = Paginator(list,5)
+    page = paginator.page(1)
+    context = {'page':page}
+    return render(request,'herolist.html',context)
+    
+
