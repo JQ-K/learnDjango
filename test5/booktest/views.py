@@ -7,6 +7,7 @@ from django.conf import settings
 from models import * #导入数据库
 from django.core.paginator import *
 from django.views.decorators.cache import cache_page #导入缓存包
+from django.core.cache import cache
 # Create your views here.
 
 
@@ -80,10 +81,11 @@ def content(request):
 
 
 #缓存
-@cache_page(60*10)
+#@cache_page(60*10)
 def cache1(request):
     #return HttpResponse('hello')
     #return HttpResponse('helloi2')
+    #cache.set('key1','value1',600)
+    print(cache.get('key1'))
     return render(request, 'cache1.html')
-
 
