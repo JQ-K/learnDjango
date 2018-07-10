@@ -18,4 +18,5 @@ urlpatterns=[
     url(r'^city/(\d+)/$',views.city),
     url(r'^htmleditor$',views.html_editor),
     url(r'^content/$',views.content),
+    url(r'^cache1/$',views.cache1),
     ]
