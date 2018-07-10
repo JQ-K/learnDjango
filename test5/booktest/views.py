@@ -85,7 +85,10 @@ def content(request):
 def cache1(request):
     #return HttpResponse('hello')
     #return HttpResponse('helloi2')
-    #cache.set('key1','value1',600)
-    print(cache.get('key1'))
-    return render(request, 'cache1.html')
+    #cache.set('key1','value1',600)#缓存数据
+    #print(cache.get('key1'))
+    #return render(request, 'cache1.html')
+
+    cache.clear()
+    return HttpResponse('ok cache is clear')
 
