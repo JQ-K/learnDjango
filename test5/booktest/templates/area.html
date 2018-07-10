@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+     <script type="text/javascript" src="/static/booktest/jquery-1.12.4.min.js"></script>
+     <script type="text/javascript">
+         $(function(){
+               //查询省信息
+             pro=$('#pro')
+             $.get('/pro', function (dic) {
+                 $.each(dic.data, function (index, item){
+                     pro.append('<option value="'+item['id']+'">' +item['title']+'</option>')
+                 
+                 }); 
+             });
+
+             //查询市信息
+             $('#pro').change(function () {
+                 $.get('/city'+$(this).val() + '/' , function (dic) {
+                     city = $('#city');
+                     S.each(dic.data, function (index, item) {
+                     city.append('<option value="'+item['id']+'">' +item.title+'</option>')
+
+                     });
+                 });
+             });
+         });
+     
+
+      </script>
+ </head>
+ <body>
+     <select id="pro" name="">
+         <option value= "">请选择省</option>
+     </select>
+     <select id="city" name="">
+         <option value="">请选择市</option>
+}    </select>
+    <select id="dis" name="">
+        <option value="">请选择区</option>
+    </select>
+</body>
+</html>

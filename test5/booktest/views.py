@@ -1,7 +1,7 @@
 #coding:utf-8
 from django.shortcuts import render
 
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 import os
 from django.conf import settings
 from models import * #导入数据库
@@ -42,3 +42,21 @@ def hero_list(request, pindex):#向视图传递参数需要用到url正则表达
     return render(request,'herolist.html',context)
     
 
+#省市区选择
+def area(request):
+    areas = Areas.objects.all()
+    context = {'areas':areas}
+    return render(request,'area.html',context)
+
+def pro(request):
+    data = Areas.objects.filter(parea__isnull=True).values('id','title')
+    data = list(data)
+    print(data)
+    return JsonResponse({'data':data},safe=False)
+
+
+def city(request,id):
+    data = Areas.objects.filter(parea_id=id).values('id','title')
+    data = list(data)
+    print(data)
+    return JsonResponse({'data':data},safe=False)

@@ -1,3 +1,4 @@
+#coding:utf-8
 from django.db import models
 
 # Create your models here.
@@ -20,11 +21,13 @@ class BookInfo(models.Model):
 class HeroInfo(models.Model):
     hname = models.CharField(max_length=10)
     hgender = models.BooleanField(default=True)
-    hcontent = models.TextField()
+    hcontent = models.TextField()   
     isDelete = models.BooleanField(default=False)
     book = models.ForeignKey(BookInfo)
 
-
+class Areas(models.Model):
+    title = models.CharField(max_length=10)
+    parea = models.ForeignKey('self', null=True, blank=True)#mysql 中外键自关联
     
 
 

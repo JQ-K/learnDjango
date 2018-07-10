@@ -12,4 +12,8 @@ urlpatterns=[
 
     url(r'^uploadhandle$', views.upload_handle),
     url(r'^herolist/(\d+)*$', views.hero_list),
+    url(r'^area$',views.area),
+    url(r'^pro/$',views.pro),
+
+    url(r'^city/(\d+)/$',views.city),
 ]
