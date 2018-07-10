@@ -1,5 +1,6 @@
 #coding:utf-8
 from django.db import models
+from tinymce.models import HTMLField
 
 # Create your models here.
 
@@ -28,6 +29,7 @@ class HeroInfo(models.Model):
 class Areas(models.Model):
     title = models.CharField(max_length=10)
     parea = models.ForeignKey('self', null=True, blank=True)#mysql 中外键自关联
-    
 
 
+class Test1(models.Model):
+    content = HTMLField()

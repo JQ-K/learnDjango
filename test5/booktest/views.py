@@ -1,7 +1,7 @@
 #coding:utf-8
 from django.shortcuts import render
 
-from django.http import HttpResponse, JsonResponse
+from django.http import HttpResponse, JsonResponse 
 import os
 from django.conf import settings
 from models import * #导入数据库
@@ -60,3 +60,19 @@ def city(request,id):
     data = list(data)
     print(data)
     return JsonResponse({'data':data},safe=False)
+
+#自定义编辑器
+def html_editor(request):
+    return render(request,'html_editor.html')
+
+def content(request):
+    html = request.POST.get('hcontent')
+    #test1=Test1.objects.get(pk=1) # 更新数据库内容
+    #test1.content = html
+    #test1.save()
+    test1 = Test1()#向数据库中保存数据
+    test1.content = html
+    test1.save()
+
+    context = {'content': html}
+    return render(request, 'htmlshow.html',context)

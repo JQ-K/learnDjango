@@ -9,3 +9,6 @@ class BookInfoAdmin(admin.ModelAdmin):
 
 #admin.site.register(BookInfo, BookInfoAdmin) #admin 注册目的是后台管理 数据库
 
+@admin.register(Test1)
+class TestAdmin(admin.ModelAdmin):
+    list_display = ['id','content']

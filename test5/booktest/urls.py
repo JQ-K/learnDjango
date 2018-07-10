@@ -16,4 +16,6 @@ urlpatterns=[
     url(r'^pro/$',views.pro),
 
     url(r'^city/(\d+)/$',views.city),
-]
+    url(r'^htmleditor$',views.html_editor),
+    url(r'^content/$',views.content),
+    ]
