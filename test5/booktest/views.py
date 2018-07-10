@@ -92,3 +92,7 @@ def cache1(request):
     cache.clear()
     return HttpResponse('ok cache is clear')
 
+#全文检索+中文分词
+
+def mysearch(request):
+    return render(request, 'mysearch.html')

@@ -1,1 +1,2 @@
-{{ content }}
+{{ object.content }}
+{{ object.id }}

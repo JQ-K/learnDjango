@@ -19,4 +19,5 @@ urlpatterns=[
     url(r'^htmleditor$',views.html_editor),
     url(r'^content/$',views.content),
     url(r'^cache1/$',views.cache1),
+    url(r'^mysearch/$',views.mysearch),
     ]
