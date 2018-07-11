@@ -39,12 +39,12 @@ def register_handle(request):
 def register_exist(request):
     uname = request.GET.get('uname')
     count = UserInfo.objects.filter(uname=uname).count()
-    return JsonResponse({'count':count})
+    return JsonResponse({'count':count})#js接收json格式文件
 
 
 #登录
 def login(request):
-    uname = request.COOKIES.get('uname','')
+    uname = request.COOKIES.get('uname','')#cookie保存登录信息，如果之前有cookie信息直接登录
     context={'title': '用户登录', 'error_name': 0, 'error_pwd':0, 'uname':uname}
     return render(request,'df_user/login.html',context)
 
@@ -78,5 +78,8 @@ def login_handle(request):
         context = {'title': '用户登录', 'error_name':1, 'error_pwd': 0, 'uname':uname, 'upwd':upwd}
         return render(request, 'df_user/login.html', context)
 
-
+def info(request):
+    user_email = UserInfo.objects.get()
+    context = {}
+    return render(request,'df_user/user_center_info.html',context)
         

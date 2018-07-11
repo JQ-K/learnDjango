@@ -10,4 +10,6 @@ urlpatterns=[
     url(r'^login/$',views.login),
     url(r'^login_handle/$',views.login_handle),
     url(r'^register_exist/$',views.register_exist),
+    url(r'^info/$',views.info),
+
 ]
