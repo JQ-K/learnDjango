@@ -11,5 +11,6 @@ urlpatterns=[
     url(r'^login_handle/$',views.login_handle),
     url(r'^register_exist/$',views.register_exist),
     url(r'^info/$',views.info),
-
+    url(r'^order/$',views.order),
+    url(r'^site/$',views.site),
 ]
