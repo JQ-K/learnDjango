@@ -93,12 +93,12 @@ def order(request):
 
 def site(request):
     user = UserInfo.objects.get(id=request.session["user_id"])
-    #print(user)
+    print(request.method)
     if request.method == 'POST':
         post = request.POST
         user.ushou=post.get('ushou')
         user.uaddress=post.get('uaddress')
-        user.uyoubian=post.get('upwd')
+        user.uyoubian=post.get('uyoubian')
         user.uphone=post.get('uphone')
         user.save()
     context = {'title': '用户中心', 'user':user }
