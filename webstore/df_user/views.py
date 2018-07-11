@@ -36,12 +36,10 @@ def register_handle(request):
     return HttpResponseRedirect('/user/login/')
 
 #判断注册用户名是否存在，需要配合js完成
-def register_exit(request):
+def register_exist(request):
     uname = request.GET.get('uname')
     count = UserInfo.objects.filter(uname=uname).count()
     return JsonResponse({'count':count})
-
-
 
 
 #登录
