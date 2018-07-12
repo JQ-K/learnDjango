@@ -11,6 +11,9 @@ class TypeInfo(models.Model):
     ttitle = models.CharField(max_length=20)
     isDelete = models.BooleanField(default=False)
 
+    def __str__(self):
+        return self.title.encode('utf-8')
+
 class GoodsInfo(models.Model):
     """上商品信息"""
     gtitle = models.CharField(max_length=20)
@@ -24,7 +27,11 @@ class GoodsInfo(models.Model):
     gkucun = models.IntegerField()
     gcontent = HTMLField()#富文本编辑器tinymce
     gtype = models.ForeignKey(TypeInfo)#外键,商品和分类是一对多关系
-    gadv = models.BooleanField(default=False)
+    
+    #gadv = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.gtitle.encode('utf-8')
 
 
 
