@@ -35,3 +35,14 @@
   UserInfo.objects.filter(id=1)[0].uname
 
 
+### 商品信息模型
+
+* 富文本编辑器tinymce的使用
+
+> 富文本编辑器可以在后台直接编辑,所见即所得
+
+> 配置步骤 
+1. 模型类导入  from tinymce.modes import HTMLField
+2. setings 中注册,配置显示信息
+3. 根url中配置url
+
