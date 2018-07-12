@@ -12,7 +12,7 @@ class TypeInfo(models.Model):
     isDelete = models.BooleanField(default=False)
 
     def __str__(self):
-        return self.title.encode('utf-8')
+        return self.ttitle.encode('utf-8')
 
 class GoodsInfo(models.Model):
     """上商品信息"""
