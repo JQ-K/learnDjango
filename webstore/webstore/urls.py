@@ -21,5 +21,7 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^user/', include('df_user.urls')),
     url(r'^tinymce/', include('tinymce.urls')), #富文本编辑器url配置
+    url(r'^goods/', include('df_goods.urls')), 
+
 
 ] 
