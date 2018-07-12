@@ -90,10 +90,11 @@ def order(request):
     context = {'title': '用户中心'}
     return render(request, 'df_user/user_center_order.html', context)
 
-
+#地址
 def site(request):
     user = UserInfo.objects.get(id=request.session["user_id"])
     print(request.method)
+    # 从其他链接过来的method是GET,表单submit method是POST
     if request.method == 'POST':
         post = request.POST
         user.ushou=post.get('ushou')
