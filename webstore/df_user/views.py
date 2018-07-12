@@ -6,6 +6,8 @@ from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from models import *
 from hashlib import sha1
 
+from .  import user_decorator
+
 # Create your views here.
 
 def register(request):
@@ -68,6 +70,7 @@ def login_handle(request):
                 red.set_cookie('uname',uname)
             else:
                 red.set_cookie('uname', '',max_age=-1)
+            # 存入session的目的是和login修饰函数一起判断是否登录过
             request.session['user_id'] = users[0].id
             request.session['user_name'] = uname
             return red
@@ -78,6 +81,7 @@ def login_handle(request):
         context = {'title': '用户登录', 'error_name':1, 'error_pwd': 0, 'uname':uname, 'upwd':upwd}
         return render(request, 'df_user/login.html', context)
 
+@user_decorator.islogin
 def info(request):
     user_email = UserInfo.objects.get(id=request.session['user_id']).uemail
     context = {'title': '用户中心',
@@ -86,11 +90,13 @@ def info(request):
     return render(request,'df_user/user_center_info.html',context)
 
 #订单
+@user_decorator.islogin
 def order(request):
     context = {'title': '用户中心'}
     return render(request, 'df_user/user_center_order.html', context)
 
 #地址
+@user_decorator.islogin
 def site(request):
     user = UserInfo.objects.get(id=request.session["user_id"])
     print(request.method)
