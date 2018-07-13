@@ -12,16 +12,16 @@ def index(request):
     主要是每类最新的4种商品和4中点击率最高的商品，
     每类商品需要查询2次
     """
-    fruit = GoodsInfo.objects.filter(gtype__id=1).order_by("-id")[:4]
-    fruit2 = GoodsInfo.objects.filter(gtype__id=1).order_by("-gclick")[:3]
-    fish = GoodsInfo.objects.filter(gtype__id=2).order_by("-id")[:4]
-    fish2 = GoodsInfo.objects.filter(gtype__id=2).order_by("-gclick")[:3]
-    meat = GoodsInfo.objects.filter(gtype__id=3).order_by("-id")[:4]
-    meat2 = GoodsInfo.objects.filter(gtype__id=3).order_by("-gclick")[:4]
-    egg = GoodsInfo.objects.filter(gtype__id=4).order_by("-id")[:4]
-    egg2 = GoodsInfo.objects.filter(gtype__id=4).order_by("-gclick")[:4]
-    vegetables = GoodsInfo.objects.filter(gtype__id=5).order_by("-id")[:4]
-    vegetables2 = GoodsInfo.objects.filter(gtype__id=5).order_by("-gclick")[:4]
+    fruit = GoodsInfo.objects.filter(gtype__id=7).order_by("-id")[:4]
+    fruit2 = GoodsInfo.objects.filter(gtype__id=7).order_by("-gclick")[:3]
+    fish = GoodsInfo.objects.filter(gtype__id=8).order_by("-id")[:4]
+    fish2 = GoodsInfo.objects.filter(gtype__id=8).order_by("-gclick")[:3]
+    meat = GoodsInfo.objects.filter(gtype__id=9).order_by("-id")[:4]
+    meat2 = GoodsInfo.objects.filter(gtype__id=9).order_by("-gclick")[:4]
+    egg = GoodsInfo.objects.filter(gtype__id=10).order_by("-id")[:4]
+    egg2 = GoodsInfo.objects.filter(gtype__id=10).order_by("-gclick")[:4]
+    vegetables = GoodsInfo.objects.filter(gtype__id=11).order_by("-id")[:4]
+    vegetables2 = GoodsInfo.objects.filter(gtype__id=11).order_by("-gclick")[:4]
     frozen = GoodsInfo.objects.filter(gtype__id=6).order_by("-id")[:4]
     frozen2 = GoodsInfo.objects.filter(gtype__id=6).order_by("-gclick")[:4]
     # count = CartInfo.objects.filter(
@@ -33,6 +33,7 @@ def index(request):
                'fruit2': fruit2, 'fish2': fish2, 'meat2': meat2,
                'egg2': egg2, 'vegetables2': vegetables2, 'frozen2': frozen2,
                'guest_cart': 1,'page_name':0,}
+    print(fruit.values())
 
     # 返回渲染模板
     return render(request, 'df_goods/index.html', context)

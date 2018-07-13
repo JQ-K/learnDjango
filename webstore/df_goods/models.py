@@ -18,7 +18,7 @@ class GoodsInfo(models.Model):
     """上商品信息"""
     gtitle = models.CharField(max_length=20)
     # 文件上传需要在settings 设置MEDIA_ROOT
-    gpic = models.ImageField(upload_to='df_goods')
+    gpic = models.ImageField(upload_to='static/df_goods')
     gprice = models.DecimalField(max_digits=5, decimal_places=2)
     isDelete = models.BooleanField(default=False)
     gunit = models.CharField(max_length=20,default="500g")

@@ -2,7 +2,7 @@
 {% block head %}
 <script type="text/javascript" src="/static/js/jquery-ui.min.js"></script>
 <script type="text/javascript" src="/static/js/slide.js"></script>
-<!-- <script type="text/javascript" src="js/slideshow.js"></script> -->
+<script type="text/javascript" src="js/slideshow.js"></script>
 	<script type="text/javascript">
 		BCSlideshow('focuspic');
 		var oFruit = document.getElementById('fruit_more');
@@ -78,7 +78,7 @@
 			<ul class="goods_list fl">
 				{%for g in fruit%}
 				<li>
-					<!--images/goods/goods003.jpg-->
+					<!-- images/goods/goods003.jpg -->
 					<h4><a href="/{{g.id}}">{{g.gtitle|slice:'10'}}...</a></h4>
 					<a href="/{{g.id}}"><img src="/static/{{g.gpic}}"></a>
 					<div class="prize">¥{{g.gprice}}</div>

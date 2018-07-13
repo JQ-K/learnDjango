@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from models import *
 from hashlib import sha1
@@ -80,6 +80,11 @@ def login_handle(request):
     else:
         context = {'title': '用户登录', 'error_name':1, 'error_pwd': 0, 'uname':uname, 'upwd':upwd}
         return render(request, 'df_user/login.html', context)
+
+
+def logout(request):
+    request.session.flush()
+    return redirect('/goods/')
 
 @user_decorator.islogin
 def info(request):
