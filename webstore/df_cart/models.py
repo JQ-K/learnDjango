@@ -10,4 +10,5 @@ class CartInfo(models.Model):
 	goods = models.ForeignKey('df_goods.GoodsInfo')
 	count = models.IntegerField()
 
-#谁买了几个什么
+
+#谁买了多少什么
