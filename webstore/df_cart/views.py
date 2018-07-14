@@ -15,7 +15,7 @@ def cart(request):
     context = {'title': '购物车',
                'page_name':1,
                'carts':carts }
-    return render(request,'df_cart/cart.html')
+    return render(request,'df_cart/cart.html',context)
 
 
 def add(request, gid, count):
@@ -59,6 +59,9 @@ def edit(request,cart_id,count):
         data={'ok':count1}
     return JsonResponse(data)
 
+
+#删除分为两个方面一是删除数据库中的数据,而是删除显示的数据
+#通过JsonResponse 返给页面判断
 @user_decorator.islogin
 def delete(request,cart_id):
     try:
@@ -68,3 +71,4 @@ def delete(request,cart_id):
     except Exception as e:
         data={'ok':0}
     return JsonResponse(data)
+
